@@ -1,0 +1,66 @@
+<!-- BEGIN: Main banner -->
+<section>
+  <div class="aa--grid aa--grid-cols-1 aa--gap-4 md:aa--grid-cols-2">
+    <!-- Left -->
+    <div class="aa--flex aa--flex-col aa--justify-center aa--text-center md:aa--text-left">
+      <h1>Angular <span class="aa--text-primary">Authentication</span> and <span
+          class="aa--text-primary">Authorization</span></h1>
+
+      <div class="aa--mt-4">
+        <a tuiButton [appearance]="'primary'" href="https://github.com/PranamBhat/angular-auth" target="_blank"
+          rel="noopener noreferrer">
+          Source Code
+          <fa-icon [icon]="['fab', 'github']" class="aa--ml-2"></fa-icon>
+        </a>
+      </div>
+    </div>
+
+    <!-- Right -->
+    <div class="aa--grid aa--place-items-center">
+      <img src="/assets/security.svg" class="aa--w-2/3" alt="Angular Authentication" />
+    </div>
+  </div>
+</section>
+<!-- END: Main banner -->
+
+<!-- BEGIN: Features -->
+<section>
+  <h2 class="aa--text-center">Features</h2>
+  <p class="subtitle aa--text-center">
+    This repository uses state-of-the-art features for web development.
+  </p>
+
+  <div class="aa--grid aa--grid-cols-1 aa--gap-8 md:aa--grid-cols-3 lg:aa--grid-cols-4">
+    <div *ngFor="let feature of features" class="card">
+      <div class="card-header">
+        <tui-avatar [text]="feature.name" [autoColor]="true" size="s" [rounded]="true" class="aa--mr-2"></tui-avatar>
+        <div class="card-title">{{ feature.name }}</div>
+      </div>
+      <div class="card-content">
+        <p class="aa--text-gray-600">{{ feature.description }}</p>
+
+        <div class="aa--mt-6 aa--flex aa--text-lg">
+          <a *ngIf="feature.link" tuiLink tuiHint="Link" [href]="feature.link" target="_blank" rel="noopener noreferrer"
+            class="aa--mr-4">
+            <fa-icon icon="link"></fa-icon>
+          </a>
+          <a *ngIf="feature.github" tuiLink tuiHint="Github" [href]="feature.github" target="_blank"
+            rel="noopener noreferrer" class="aa--mr-4">
+            <fa-icon [icon]="['fab', 'github']"></fa-icon>
+          </a>
+          <a *ngIf="feature.docs" tuiLink [href]="feature.docs" tuiHint="Documentation" target="_blank"
+            rel="noopener noreferrer" class="aa--mr-4">
+            <fa-icon icon="book"></fa-icon>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="aa--mt-6 aa--flex aa--justify-center">
+    <button tuiButton appearance="secondary" (click)="showAllFeatures = !showAllFeatures">
+      Show {{ showAllFeatures ? 'less' : 'more' }}
+    </button>
+  </div>
+</section>
+<!-- END: Features -->

@@ -1,0 +1,37 @@
+<div class="aa--container aa--flex aa--justify-center">
+  <div class="form-wrapper">
+    <h1 class="aa--mb-8">
+      <span class="aa--font-semibold aa--text-primary">Login</span>
+      Page
+    </h1>
+
+    <form [formGroup]="loginForm" (ngSubmit)="loginForm.valid && submit()">
+      <tui-notification status="info">
+        Username: <b>admin </b>Password: <b>demo</b>
+      </tui-notification>
+
+      <tui-notification *ngIf="showLoginError$ | async" status="error" class="aa--mt-4">
+        Ooops! The login details are incorrect.
+      </tui-notification>
+
+      <div class="tui-form__row">
+        <tui-input formControlName="username">
+          Username <span class="tui-required"></span>
+        </tui-input>
+        <tui-field-error formControlName="username"></tui-field-error>
+      </div>
+      <div class="tui-form__row">
+        <tui-input-password formControlName="password">
+          Password <span class="tui-required"></span>
+        </tui-input-password>
+        <tui-field-error formControlName="password"></tui-field-error>
+      </div>
+
+      <div class="tui-form__buttons">
+        <button tuiButton [showLoader]="(isLoading$ | async)!" class="tui-form__button" size="m" type="submit">
+          Login
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
